@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(233, 174, 147);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+p {
+    margin-top: 60px;
+    font-size: 5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.yourTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapper button {
+    margin-bottom: 100px;
+    border: none;
+    background-color: rgb(230, 158, 125);
+    border-radius: 1.5rem;
+    width: 7rem;
+    height: 5rem;
+    box-shadow: 0 0 20px #B83B5E;
+}
+
+.wrapper button:active {
+    transform: scale(0.98);
+}
+
+.wrapper button:nth-of-type(2),
+.wrapper button:nth-of-type(3) {
+    margin-left: 300px;
+}

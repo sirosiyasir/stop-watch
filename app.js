@@ -1,91 +1,57 @@
-window.onload = function () {
-  const buttonStart = document.getElementById("button-start")
-  const buttonStop = document.getElementById("button-stop")
-  const buttonReset = document.getElementById("button-reset")
-  let appendTens = document.getElementById("tens")
-  let appendSeconds = document.getElementById("seconds")
-  let tens = 00
-  let seconds = 00
-  let Interval
+/* start onclick ınterval oluşturulacak 
+ , seconds ve tens harekete geçirilecek
+ stop onclick oluşturulacak ınterval clear edilecek
+ reset onclick oluşturulacak seconds ve tens 00'a eşitlenecek
+ h2 ve h3 zaman değerlerini gir */
 
-  buttonStart.onclick = function () {
-    clearInterval(Interval)
-    Interval = setInterval(startTimer, 10)
-    console.log(Interval)
-  }
+const buttonStart = document.getElementById("button-start")
+const buttonStop = document.getElementById("button-stop")
+const buttonReset = document.getElementById("button-reset")
+const headerTwo = document.getElementById("header2")
+const headerThree = document.getElementById("header3")
+const innerSeconds = document.getElementById("seconds")
+const innerTens = document.getElementById("tens")
+let seconds = 00
+let tens = 00
+let ınterval
 
-  buttonStop.onclick = () => {
-    clearInterval(Interval)
-  }
-
-  /* BUTTON RESET H2'YE 'YOUR TİME' BAŞLIĞI VE H3'E GEÇEN ZAMANI GİRECEK ŞEKİLDE DÜZENLENECEK */
-  buttonReset.onclick = () => {
-    clearInterval(Interval)
-    tens = 00
-    seconds = 00
-    appendSeconds.innerHTML = "00"
-    appendTens.innerHTML = "00"
-  }
-
-  function startTimer() {
-    tens++
-    if (tens <= 9) {
-      appendTens.innerHTML = "0" + tens
-    }
-    if (tens > 9) {
-      appendTens.innerHTML = tens
-    }
-    if (tens > 99) {
-      seconds++
-      appendSeconds.innerHTML = "0" + seconds
-      tens = 00
-      appendTens.innerHTML = "0" + 0
-    }
-    if (seconds > 9) {
-      appendSeconds.innerHTML = seconds
-    }
-  }
+buttonStart.onclick = () => {
+  ınterval = setInterval(startTimer, 10)
 }
 
-/* window.onload = function () {
-  const buttonStart = document.getElementById("button-start")
-  const buttonStop = document.getElementById("button-stop")
-  const buttonReset = document.getElementById("button-reset")
-  let seconds = 00
-  let tens = 00
-  let appendTens = document.getElementById("tens")
-  let appendSeconds = document.getElementById("seconds")
-  var Interval
+buttonStop.addEventListener("click", () => {
+  clearInterval(ınterval)
+})
 
-  buttonStart.onclick = function () {
-    clearInterval(Interval)
-    Interval = setInterval(startTimer, 10)
-  }
+buttonReset.onclick = () => {
+  clearInterval(ınterval)
+  yourTime()
+  tens = 00
+  seconds = 00
+  innerSeconds.innerHTML = "00"
+  innerTens.innerHTML = "00"
+}
 
-  buttonStop.onclick = () => {
-    clearInterval(Interval)
+function startTimer(){
+  tens++
+  if(tens < 9){
+    innerTens.innerHTML = "0" + tens 
   }
+  if(tens > 9){
+    innerTens.innerHTML = tens
+  }
+  if(tens > 99){
+    seconds++
+    innerSeconds.innerHTML = "0" + seconds
+    tens = 00
+    innerTens.innerHTML = "0" + tens
+  }
+  if(seconds > 9){
+    innerSeconds.innerHTML = seconds
+  } 
+}
 
-  buttonReset.onclick = () => {
-    clearInterval(Interval)
-    appendSeconds.innerHTML = "00"
-    appendTens.innerHTML = "00"
-  }
-
-  function startTimer() {
-    tens++
-    if (tens <= 9) {
-      appendTens.innerHTML = "0" + tens
-    }
-    if (tens > 9) {
-      appendTens.innerHTML = tens
-    }
-    if (tens > 99) {
-      seconds++
-      appendSeconds.innerHTML = "0" + seconds
-      tens = 0
-      appendTens.innerHTML = "0" + 0
-    }
-    if (seconds > 9) appendSeconds.innerHTML = seconds
-  }
-} */
+function yourTime() {
+  headerTwo.innerText = "Your Time"
+  headerThree.innerText = innerSeconds.innerHTML + " : " + innerTens.innerHTML
+}

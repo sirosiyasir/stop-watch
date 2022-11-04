@@ -55,3 +55,7 @@ function yourTime() {
   headerTwo.innerText = "Your Time"
   headerThree.innerText = innerSeconds.innerHTML + " : " + innerTens.innerHTML
 }
+
+document.addEventListener("mousemove", (e) => {
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 70)`
+})

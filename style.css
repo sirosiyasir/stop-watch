@@ -67,4 +67,7 @@ p {
     .wrapper button:nth-of-type(3) {
     margin-left: 25px;
 }
+    .wrapper button:nth-of-type(3) {
+    margin-left: 10px;
+}
 }
